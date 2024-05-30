@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Скачать файлы</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+    }
+    .download-form {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        border-radius: 5px;
+        text-align: center;
+    }
+    .download-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    .download-btn:hover {
+        background-color: #218838;
+    }
+</style>
+</head>
+<body>
+    <div class="download-form">
+        <h2>Скачать файлы</h2>
+        <form method="get" enctype="multipart/form-data">
+            {% for filename in files %}
+            {% if filename != '.gitkeep' %}
+            <a href="{{ url_for('download_file', filename=filename) }}" class="download-btn">
+                Скачать файл {{ filename }} 
+            </a><br />
+            <br><br>
+            {% endif %}
+            {% endfor %}
+        </form>
+    </div>
+</body>
+</html>

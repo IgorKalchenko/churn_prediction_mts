@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Загрузка CSV файла</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+    }
+    .upload-form {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        border-radius: 5px;
+        text-align: center;
+    }
+    .upload-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    .upload-btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+    <div class="upload-form">
+        <h2>Загрузить CSV файл</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <label for="file" class="upload-btn">
+                Выберите файл
+                <input type="file" id="file" name="file" class="upload-btn" style="display: none;" onchange="document.getElementById('upload-file-info').innerHTML = this.files[0].name;"><br /><br />
+            </label>
+            <br>
+            <span id="upload-file-info"></span>
+            <br><br>
+            <button type="submit" class="upload-btn">Загрузить</button>
+        </form>
+    </div>
+</body>
+</html>
