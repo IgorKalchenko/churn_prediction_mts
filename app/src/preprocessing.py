@@ -2,8 +2,7 @@ import pandas as pd
 
 
 cat_vals = ["регион", "использование", "pack"]
-to_drop = ['binary_target', 'client_id', 'mrg_',]
-target_col = 'binary_target'
+to_drop = ['client_id', 'mrg_',]
 
 
 def import_data(path_to_file):
